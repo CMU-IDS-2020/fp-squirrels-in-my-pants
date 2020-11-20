@@ -11,8 +11,15 @@ s=requests.get(url).content
 c=pd.read_csv(io.StringIO(s.decode('utf-8')))
 
 trial = alt.Chart(c).mark_circle().encode(
-    alt.X('City:N', bin=True),
-    alt.Y('Total:Q', bin=True),
-    #size='count()'
+    alt.X('Total:Q', bin=True),
+    alt.Y('City:O', bin=True),
+    size='Total:Q'
 )
 st.write(trial)
+
+trial2 = alt.Chart(c).mark_circle().encode(
+    x='Total:Q',
+    y='City:N',
+    size='Total:Q'
+)
+st.write(trial2)
