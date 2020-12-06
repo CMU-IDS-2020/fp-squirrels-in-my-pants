@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <title>Say Their Names</title>
+  <link rel="stylesheet" type="text/css" href="css/fullpage.css" />
+  <script src="https://d3js.org/d3.v6.min.js"></script>
+
+</head>
+<body>
+    <div id="fullpage">
+        <div class="section">
+            Map section!
+            <div id='mapHeaderRow' class='section-row'>
+                <div class='section-title'>
+                    Say Their Names.
+                </div>
+            </div>
+            <div id='map'>
+
+            </div>
+        </div>
+        <div class="section">Some section</div>
+        <div class="section">Some section</div>
+        <div class="section">Some section</div>
+    </div>
+
+    <script type="text/javascript" src="js/fullpage.js"></script>
+    <script type="text/javascript">
+	var myFullpage = new fullpage('#fullpage', {
+		sectionsColor: ['#f2f2f2', '#4BBFC3', '#7BAABE', 'whitesmoke', '#ccddff']
+	});
+</script>
+</body>
