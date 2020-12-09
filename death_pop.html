@@ -1,6 +1,13 @@
 <canvas id="myChart"></canvas>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.min.js"></script>
+<!-- <script type='text/javascript'>
 
+  function playclip() {
+      print("HELLO");
+      alert('playing clip...');
+  }
+  
+</script> -->
 
 <script>
     var ctx = document.getElementById("myChart");
@@ -59,7 +66,17 @@
   }]
 };
 var pieChart = new Chart(ctx, {
-  type: 'pie',
-  data: chartData
+  type: 'doughnut',
+  data: chartData,
+  options: {
+    cutoutPercentage: 40,
+    legend: {
+      position: 'left',
+      labels: {
+        fontFamily: 'Open Sans',
+        fontSize: 30
+      }
+    }
+  }
 })
 </script>
