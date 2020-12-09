@@ -1,13 +1,5 @@
 <canvas id="myChart"></canvas>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.min.js"></script>
-<!-- <script type='text/javascript'>
-
-  function playclip() {
-      print("HELLO");
-      alert('playing clip...');
-  }
-  
-</script> -->
 
 <script>
     var ctx = document.getElementById("myChart");
@@ -27,18 +19,21 @@
             0.053784472,
             0.001626191,
             0.178127579],
-    backgroundColor: [
-      "#C15F5F",
-      "#B3C15D",
-      "#5D6BC1",
-      "#EEE55C",
-      "#EEA25C",
-      "#A7638B"
+            backgroundColor: [
+      "#A92D71",
+      "#3A4F6F",
+      "#91ADCF",
+      "#F6C862",
+      "#8DB16E",
+      "#BA7E97"
     ],
     hoverBackgroundColor: [
-      "#FF6384",
-      "#36A2EB",
-      "#FFCE56"
+      "#792051",
+      "#233043",
+      "#5f88b9",
+      "#f2b226",
+      "#709550",
+      "#a65979"
     ]
   }, { //INNER RING: DEATH
     data: [0.256655738,
@@ -48,20 +43,20 @@
             0.005508197,
             0.17547541],
     backgroundColor: [
-      "#C15F5F",
-      "#B3C15D",
-      "#5D6BC1",
-      "#EEE55C",
-      "#EEA25C",
-      "#A7638B"
+      "#A92D71",
+      "#3A4F6F",
+      "#91ADCF",
+      "#F6C862",
+      "#8DB16E",
+      "#BA7E97"
     ],
     hoverBackgroundColor: [
-      "#FF6384",
-      "#36A2EB",
-      "#FFCE56",
-      "#FF6384",
-      "#36A2EB",
-      "#FFCE56"
+      "#792051",
+      "#233043",
+      "#5f88b9",
+      "#f2b226",
+      "#709550",
+      "#a65979"
     ]
   }]
 };
@@ -71,11 +66,7 @@ var pieChart = new Chart(ctx, {
   options: {
     cutoutPercentage: 40,
     legend: {
-      position: 'left',
-      labels: {
-        fontFamily: 'Open Sans',
-        fontSize: 30
-      }
+      position: 'left'
     }
   }
 })
