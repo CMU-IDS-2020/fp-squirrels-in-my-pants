@@ -45,6 +45,10 @@
                   .pauseFor(100)
                   .typeString('Elijah McCain.')
                   .pauseFor(1000)
+                  .deleteChars(14)
+                  .pauseFor(100)
+                  .typeString('for Black Lives.')
+                  .pauseFor(1500)
                   .start();
 
 
@@ -247,8 +251,8 @@
                       .attr("cy", function(d) {
                         return projection([d.lng, d.lat])[1];
                       })
-                      .style("fill", function(d) { return d3.hsl(0.8, 0.8, 0.8)})
-                      .style("stroke", function(d) { return d3.hsl(0.7, 0.7, 0.7)})
+                      .style("fill", function(d) { return d3.hsl(69, 0.17, 0.76)})
+                      .style("stroke", function(d) { return d3.hsl(69, 0.17, 0.61)})
                       //.style("opacity", 0.5)
                       .attr("r", 4)
                         .transition()
@@ -285,71 +289,85 @@
         </div>
 
         <div class='section' id='race'>
-          <canvas id="myChart"></canvas>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.min.js"></script>
-
-
-<script>
-    var ctx = document.getElementById("myChart");
-    var chartData = {
-        labels: [
-    "Black",//Black
-    "White", //White
-    "Native American", //Native American
-    "Asian", //Asian
-    "Pacific Islander", //Pacific Islander
-    "Hispanic" //Hispanic
-  ],
-  datasets: [{ //OUTER RING: POPULATION
-    data: [0.122996421,
-            0.610651368,
-            0.006613376,
-            0.053784472,
-            0.001626191,
-            0.178127579],
-    backgroundColor: [
-      "#C15F5F",
-      "#B3C15D",
-      "#5D6BC1",
-      "#EEE55C",
-      "#EEA25C",
-      "#A7638B"
-    ],
-    hoverBackgroundColor: [
-      "#FF6384",
-      "#36A2EB",
-      "#FFCE56"
-    ]
-  }, { //INNER RING: DEATH
-    data: [0.256655738,
-            0.448131148,
-            0.014557377,
-            0.015737705,
-            0.005508197,
-            0.17547541],
-    backgroundColor: [
-      "#C15F5F",
-      "#B3C15D",
-      "#5D6BC1",
-      "#EEE55C",
-      "#EEA25C",
-      "#A7638B"
-    ],
-    hoverBackgroundColor: [
-      "#FF6384",
-      "#36A2EB",
-      "#FFCE56",
-      "#FF6384",
-      "#36A2EB",
-      "#FFCE56"
-    ]
-  }]
-};
-var pieChart = new Chart(ctx, {
-  type: 'pie',
-  data: chartData
-})
-</script>
+          <div class='section-spacer'></div>
+          <div id='pie-chart'>
+            <canvas id="myChart"></canvas>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.min.js"></script>
+            
+            <script>
+                var ctx = document.getElementById("myChart");
+                var chartData = {
+                    labels: [
+                "Black",//Black
+                "White", //White
+                "Native American", //Native American
+                "Asian", //Asian
+                "Pacific Islander", //Pacific Islander
+                "Hispanic" //Hispanic
+              ],
+              datasets: [{ //OUTER RING: POPULATION
+                data: [0.122996421,
+                        0.610651368,
+                        0.006613376,
+                        0.053784472,
+                        0.001626191,
+                        0.178127579],
+                        backgroundColor: [
+                  "#A92D71",
+                  "#3A4F6F",
+                  "#91ADCF",
+                  "#F6C862",
+                  "#8DB16E",
+                  "#BA7E97"
+                ],
+                hoverBackgroundColor: [
+                  "#792051",
+                  "#233043",
+                  "#5f88b9",
+                  "#f2b226",
+                  "#709550",
+                  "#a65979"
+                ]
+              }, { //INNER RING: DEATH
+                data: [0.256655738,
+                        0.448131148,
+                        0.014557377,
+                        0.015737705,
+                        0.005508197,
+                        0.17547541],
+                backgroundColor: [
+                  "#A92D71",
+                  "#3A4F6F",
+                  "#91ADCF",
+                  "#F6C862",
+                  "#8DB16E",
+                  "#BA7E97"
+                ],
+                hoverBackgroundColor: [
+                  "#792051",
+                  "#233043",
+                  "#5f88b9",
+                  "#f2b226",
+                  "#709550",
+                  "#a65979"
+                ]
+              }]
+            };
+            var pieChart = new Chart(ctx, {
+              type: 'doughnut',
+              data: chartData,
+              options: {
+                cutoutPercentage: 40,
+                legend: {
+                  position: 'left'
+                }
+              }
+            })
+            </script>
+            </div>
+          <div id='pie-description'>
+            hello
+          </div>
 
         </div>
 
@@ -384,11 +402,11 @@ var pieChart = new Chart(ctx, {
     <script type="text/javascript" src="js/fullpage.js"></script>
     <script type="text/javascript">
 	var myFullpage = new fullpage('#fullpage', {
-        autoScrolling: true,
+        autoScrolling: false,
         navigation: true,
         animateAnchors: true,
         licenseKey: 'BF32E12A-63184355-9B028F97-1B1558F1',
-		    sectionsColor: ['#f2f2f2', '#4BBFC3', '#7BAABE', 'whitesmoke', '#ccddff']
+		    sectionsColor: ['#f2f2f2', '#f2f2f2', '#f2f2f2', 'f2f2f2', '#f2f2f2']
 	});
 </script>
 </body>
