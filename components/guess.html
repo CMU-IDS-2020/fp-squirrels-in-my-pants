@@ -18,8 +18,13 @@
   </head>
   <body>
     <h4>How many police officers do you think are held accountable for their actions per 100?</h4>
+    <div id="grids" style="margin-left: auto; margin-right: auto;">
+      <div id="officer_grid" style="float: left"></div>
+      <div id="soln-grid" style="float: right"><button type="button" onclick="showResults()" id="guess-btn">See actual number</button></div>
+    </div>
+    
+    <p>You guessed <b><span id='guess'>__</span></b> officers.<span id='soln-text'></span></p>
     <div id="officer_grid"></div>
-    <p>You guessed <b><span id='guess'>__</span></b> officers.</p>
-    <button type="button" onclick="showResults">See actual number</button>
+    
   </body>
 </html>
