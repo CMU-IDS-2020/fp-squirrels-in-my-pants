@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <!-- <script src="plotly-latest.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script src="https://d3js.org/d3.v3.min.js"></script>
+    <script src="https://d3js.org/topojson.v1.min.js"></script>
+    <script src="https://d3js.org/queue.v1.min.js"></script>
+    <script src="js/main.js"></script>
+</head>
+<body>
+    <div id="map">
+        <script>
+            var map = {},
+                startDate = Date("2013-01-01 00:00:00"),
+                endDate = Date("2020-10-28 00:00:00"),
+                currentDate = startDate;
+            
+            var date = new Date("2013-01-01 00:00:00")
+            //console.log()
+    
+            var width = 1200,
+                height = 500;
+    
+            var projection = d3.geo.albersUsa().scale(980).translate([width/2, height/2-20]);
+    
+            var path = d3.geo.path().projection(projection);
+
+            var svg = d3.select("#map")
+                .append("svg")
+                .attr("width", width)
+                .attr("height", height);
+
+            var div = d3.select("#map")
+                .append("div")
+                .attr("class", "tooltip")
+                .style("opacity", 0);
+
+            var g = svg.append("g");
+
+            g.append( "rect" )
+                .attr("width",width)
+                .attr("height",height)
+                .attr("fill","white")
+                .attr("opacity",0)
+                .on("mouseover",function(){
+                    hoverData = null;
+                    //if (probe) probe.style("display","none");
+                })
+
+            queue()
+                .defer(d3.json, "us.json")
+                .defer(d3.csv, "mpv.csv")
+                .await(ready);
+
+            function ready(error, us, data) {
+                if (error) throw error;
+
+                svg.append("path")
+                .attr("class", "states")
+                .datum(topojson.feature(us, us.objects.states))
+                .attr("d", path);
+            }
+    
+
+        </script>
+    </div>
+    
+
+
+
+
+
+    </script>
+</body>
+</html>
