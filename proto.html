@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Say Their Names</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <script src="plotly-latest.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://d3js.org/topojson.v1.min.js"></script>
+    <script src="https://d3js.org/queue.v1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/d3.slider.js"></script>
+
+</head>
+<body>
+    <div id="fullpage">
+        <div class='section'>
+            <h1>Say Their Names.</h1>
+        </div>
+        <div class='section'>
+            <p>Before we examine the topic of police brutality in America, 
+                we must pay tribute to those who have lost their lives to 
+                police brutality. They are not just statistics, but rather 
+                individuals who fell victim to a system riddled with injustice. 
+                We must say their names.
+            </p>
+        </div>
+        <div class="section">
+            <h2>Remembering those we lost.</h2>
+            <div id='mapHeaderRow' class='section-row'>
+                <div class='section-title'>
+                    
+                </div>
+            </div>
+            <div id='map'>
+                <img src="map.png">
+            </div>
+            <div id='filters'>
+                <div id="black-filter">
+                    <input name="Black" checked="true" type="checkbox">
+                    <label> Black </label>
+                </div>
+                
+                <div id="asian-filter">
+                    <input name="Asian" checked="true" type="checkbox">
+                    <label> Asian </label>
+                </div>
+
+                <div id="white-filter">
+                    <input name="White" checked="true" type="checkbox">
+                    <label> White </label>
+                </div>
+
+                <div id="hispanic-filter">
+                    <input name="Hispanic" checked="true" type="checkbox">
+                    <label> Hispanic </label>
+                </div>
+
+                <div id="na-filter">
+                    <input name="Native American" checked="true" type="checkbox">
+                    <label> Native American </label>
+                </div>
+
+                <div id="other-filter">
+                    <input name="Other" checked="true" type="checkbox">
+                    <label> Other </label>
+                </div>
+
+                <div id="unknown-filter">
+                    <input name="Unknown" checked="true" type="checkbox">
+                    <label> Unknown </label>
+                </div>
+                
+            </div>
+        </div>
+        <div class="section">
+            <h2>Race breakdown</h2>
+            <div id='race-image'>
+                <img src="race_graph.png">
+            </div>
+        </div>
+        <div class="section">
+            <h2>Addressing assumptions</h2>
+            <div id="violent-crime">
+                <p>High violent crime rate does not imply high police homicide rate</p>
+                <img src="violent_crime.png">
+            </div>
+            <div id="budget">
+                <p>We can also examine the relationship between police funding 
+                    and death rate. Over time, we see police funding increasing,
+                     but we don’t see any relationship between police funding 
+                     and death rate.
+                </p>
+                <img src="budget.png">
+            </div>
+        </div>
+        <div class="section">
+            <h2>De-escalation across cities</h2>
+            <div id="deescalation">
+                <p>Now, we examine specific policies and their associations
+                    with the police brutality rates in specific cities. These
+                    cities all implemented de-escalation policies in 2015.
+                </p>
+                <img src="deescalation.png">
+                <p>From the graph, we can see an association between date of
+                    policy implemented and a slight decrease in the rate of 
+                    police brutality incidents.
+                </p>
+            </div>
+        </div>
+        <div class='section'>
+            <h2>Holding Police Accountable</h2>
+        </div>
+
+        <div class='section'>
+            <h2>Diving into Seattle</h2>
+            <p>Examining the effects of multiple policies on police brutality.</p>
+            <div id="chart2"></div>
+    <script>
+      var x = [];
+      var y = [];
+
+      $.get('https://data.seattle.gov/resource/ppi5-g2bj.json?$select=date_trunc_ym(occured_date_time),count(occured_date_time)&$group=date_trunc_ym(occured_date_time)&$order=date_trunc_ym(occured_date_time)')
+        .done((json) => {
+          data = json;
+          for (i=0; i<data.length; i++) {
+            x.push(data[i].date_trunc_ym_occured_date_time);
+            y.push(data[i].count_occured_date_time);
+          }
+
+          const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+          x = x.map(d => monthNames[parseInt(d.slice(5,7))-1] + ' ' + d.slice(0,4));
+
+          console.log(x);
+          console.log(y);
+
+          var options = {
+            series: [{
+              name: "Incidents",
+              data: y
+            }],
+              chart: {
+              height: 350,
+              type: 'line',
+              zoom: {
+                enabled: false
+              }
+            },
+            annotations: {
+              xaxis: [{
+                x: 'Sep 2019',
+                strokeDashArray: 0,
+                borderColor: '#775DD0',
+                label: {
+                  borderColor: '#775DD0',
+                  style: {
+                    color: '#fff',
+                    background: '#775DD0',
+                  },
+                  text: 'new de-escalation policy',
+                }
+              },
+              {
+                x: 'May 2020',
+                strokeDashArray: 0,
+                borderColor: '#775DD0',
+                label: {
+                  borderColor: '#775DD0',
+                  style: {
+                    color: '#fff',
+                    background: '#775DD0',
+                  },
+                  text: 'BLM protests',
+                }
+              },
+              {
+                x: 'May 2017',
+                strokeDashArray: 0,
+                borderColor: '#775DD0',
+                label: {
+                  borderColor: '#775DD0',
+                  style: {
+                    color: '#fff',
+                    background: '#775DD0',
+                  },
+                  text: 'body cam proprosal approved, Ordinance 125315 ?',
+                }
+              }]
+            },
+            dataLabels: {
+              enabled: false
+            },
+            stroke: {
+              curve: 'straight',
+              width: 2
+            },
+            title: {
+              text: 'Seattle Use of Force Rates',
+              align: 'left'
+            },
+            grid: {
+              row: {
+                colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+                opacity: 0.5
+              },
+            },
+            xaxis: {
+              categories: x,
+            }
+        };
+
+        var chart = new ApexCharts(document.querySelector("#chart2"), options);
+        chart.render();
+
+        })
+        .fail((error) => console.error(error))
+
+      
+      
+        </script>
+        </div>
+
+        <div class='section'>
+            <h2>Call to Action</h2>
+            <p>Focusing on transparent from police forces.
+                The lack of transparent police data that examines the effects
+                of policies on police brutality rates does not allow us to make
+                any causal assumptions of any relationships between policies or
+                budgets and police brutality rates.
+            </p>
+            <p>Some actions to remediate this issues are:</p>
+            <ul>
+                <li>Codifying police data collection and publication in law.</li>
+                <li>Publishing policing budget data.</li>
+                <li>Developing standards for comparison.</li>
+                <li>Facilitating data-driven publication and policy changes.</li>
+            </ul>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="js/fullpage.js"></script>
+    <script type="text/javascript">
+	var myFullpage = new fullpage('#fullpage', {
+        autoScrolling: false,
+        navigation: true,
+		sectionsColor: ['#f2f2f2', '#4BBFC3', '#7BAABE', 'whitesmoke', '#ccddff']
+	});
+</script>
+</body>
