@@ -169,5 +169,5 @@ function showResults() {
   cell = document.querySelector('#j2')
   cell.style.color='red'
   cell.querySelector('#percent').setAttribute('x', '40%')
-  document.querySelector('soln-text').style.visibility ='visible'
+  document.querySelector('#soln-text').style.visibility ='visible'
 }
