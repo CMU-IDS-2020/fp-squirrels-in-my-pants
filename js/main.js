@@ -9,7 +9,7 @@ function fill_grid(fill_amt) {
     for(var i=1; i<=fill_amt; i++) {
       cell = document.querySelector('#i' + i);
       cell.querySelector('#percent').setAttribute('x','100%');
-      cell.style.color = 'pink';
+      cell.style.color = '#c9ccb8';
     }
 
     cell = document.querySelector('#i' + fill_amt);
@@ -23,7 +23,7 @@ function fill_grid(fill_amt) {
         cell.querySelector('#percent').setAttribute('x','100%');    
       }
       if (cell.classList.contains('selected')) {
-        cell.style.color = 'red';
+        cell.style.color = '#c9ccb8';
       } else {
         cell.style.color = 'black';
       }
@@ -43,7 +43,7 @@ function choose_answer(fill_amt) {
   if (!done) {
     for(var i=1; i<=fill_amt; i++) {
       cell = document.querySelector('#i' + i);
-      cell.style.color = 'red';
+      cell.style.color = '#c9ccb8';
       cell.classList.add('selected');
       cell.classList.remove('blank')
       cell.classList.remove('partial_fill');
@@ -74,7 +74,7 @@ function make_grid(fill_grid, choose_answer) {
       for(var i=1; i<=100; i++) {
         cell = document.querySelector('#i' + i);
         if (selected != null && i <= Math.ceil(selected)) {
-          cell.style.color = 'red';
+          cell.style.color = '#c9ccb8';
         } else {
           cell.style.color = 'black';
         }
@@ -165,9 +165,9 @@ function showResults() {
   done = true;
 
   cell = document.querySelector('#j1')
-  cell.style.color='red'
+  cell.style.color='#c9ccb8'
   cell = document.querySelector('#j2')
-  cell.style.color='red'
+  cell.style.color='#c9ccb8'
   cell.querySelector('#percent').setAttribute('x', '40%')
   document.querySelector('#soln-text').style.visibility ='visible'
 }

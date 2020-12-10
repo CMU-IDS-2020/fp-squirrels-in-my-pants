@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Say Their Names</title>
+    <link rel="stylesheet" type="text/css" href="css/fullpage.css">
     <link rel="stylesheet" type="text/css" href="css/style.css" />
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap" rel="stylesheet">    
@@ -9,14 +10,13 @@
     <script src="https://d3js.org/topojson.v1.min.js"></script>
     <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
     <script src="js/main.js" defer></script>
-    
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     
 </head>
 <body>
     <div id="fullpage">
         <div class='section' id='title-section'>
-          <div id='title-spacer'></div>
+          
             <h1 id='main-title'>Say Their Names.</h1>
             <div id="title-box"></div>
             
@@ -65,6 +65,8 @@
               // }
             </script>
             <p id='main-title'></p>
+            <div id='mini-spacer'></div>
+            <p></p>
         </div>
 
         <div class='section' id='map-introduction'>
@@ -287,13 +289,17 @@
               </script>
           </div>
           
-            
+        <div class='section-spacer'></div>
         </div>
+
 
         <div class='section' id='race'>
           <div class='section-spacer'></div>
           <div class='description'>
-            This project examines collected data on police brutality incidents between 2013 and 2019.
+            <strong>We defined police brutality as instances where a civilian was killed by police officer.</strong>
+            <p>This project examines collected data on police brutality incidents between 2013 and 2020. 
+            It accounts for Black, White, Asian, Pacific Islander, and Native American races, as well as the Hispanic ethnicity.</p>
+            
           </div>
           <div class='section-spacer'></div>
           <div id='pie-chart'>
@@ -369,47 +375,95 @@
                 }
               }
             })
+            
             </script>
             </div>
             <div class='section-spacer'></div>
           <div id='pie-description'>
             
             <div class='description'>
-              We first examined the proportion of police brutality incidents on 
-              with a racial breakdown. In this graph, the inner ring represents
-              the rate at which members of a certain race are killed by police,
-              while the outer ring represents the percentage of the population 
-              of the corresponding race.
+              <p>
+              Typically, death rates are highly correlated to the population 
+              size of an area just as the chances increase with denser 
+              populations. To really see past this barrier, we first examined 
+              the proportion of police brutality incidents with a racial breakdown. 
+              In this graph, the inner ring represents the rate at which members 
+              of a certain race are killed by police, while the outer ring represents 
+              the percentage of the population of the corresponding race. From this, 
+              it is evident that Black people are killed at a rate that is more than 
+              double the rate of the population percentage, despite being a smaller 
+              percentage of the population. This also notably shows an extremely 
+              unproportional rate compared to other races. 
+              </p>
+              <p>
+              Another takeaway from this pie chart is that though native 
+              americans and pacific islanders make up a small percentage of 
+              the population from the whole, the death rates are unproportionally
+              high as it is more than three times the size of their population. 
+              Straightaway, we can see that native americans and pacific 
+              islanders are underrepresented and require further scrutiny. </p>
+
             </div>
             <div class='description'>
-              From this, it is evident that Black people are killed at a rate
-              that is double the rate of other races, despite being a smaller
-              percentage of the population.
+              For more exploration, try selecting the colors of the legend to 
+              include or exclude racial groups for an accurate visual experience.
             </div>
+            <div class='section-spacer'></div>
           </div>
           
 
         </div>
-        <div class='section-spacer'>
-        </div>
+
+
+      <div class='title-spacer'>
+        <div class='title-spacer'></div>
+      </div>
+      
       <div class='section' id='crime-rate'>
         <div class='section-spacer'></div>
-          <h2 class='section-header'>What contributes to high rates of police brutality?</h2>
+          <h2 style="font-size: 36px;">What contributes to high rates of police brutality?</h2>
+          <p style="font-size: 18px;">Our exploration encountered several stops where 
+            we visualized graphs based on predicted causations to see the trends 
+            debunked our hypotheses. In this graph, we explored the relationship 
+            between police homicide rates and violent crime rates in cities across
+             the country expecting a similar trend between the two data points.
+          </p>
         <iframe id="igraph" scrolling="no" style="border:none; margin: auto; width: 70%;" seamless="seamless" src="https://plotly.com/~asadsheikh0/1" height="525" width="100%"></iframe>
-        <div class='description'>
-          Taking a look at the rates of police killings across different cities,
-          we examined the violent crime rates in a side-by-side view with the homicide rates.
-          From this, we are able to see that there is not an association between violent 
-          crime rates and police homicide rates. While we are limited to only exploring associations,
-          we must take a look at other factors that influence police killing rates such as police force policies.
-        </div>
+        
       </div>
 
       <div class='section' id='policy'>
-        <div class='section-spacer'></div>
-        <div class='section-header'>
-          <h2>Examining the effects of de-escalation policy</h2>
+        <div class='description'>
+          <p>To see the relationship between the police homicide rates and 
+            violent crime rates, the average number of violent crimes in each 
+            city was divided by total population multiplied by 10^3, and the 
+            average number of deaths by police was divided by the total 
+            population and the number of years multiplied by 10^6. We scaled 
+            the raw data points by multiplying 10^3 and 10*6 for the scatter 
+            points to be in the same range for easier comparison. The cities 
+            are listed from left to right in order of highest to lowest homicide
+             rate. As shown in the result of the graph, violent crime rates are 
+             scattered all over the y-axis without any parallel behavior to the 
+             police homicide rates. Consequently, we concluded that there are no 
+             direct effects of crime rates of cities that influence the police 
+             homicide rates. 
+          </p>
+          <p>
+            Having learned that crime rates are completely independent from 
+            police homicide rates, our exploration also looked into how the 
+            rates shift before and after the implementation of de-escalation 
+            policies within police departments. Similar to the previous 
+            calculation for police homicide rates, the total number of people 
+            killed by the police is divided by the total population multiplied 
+            by 10^6 for scaling the ranges. We looked into four cities, Denver, 
+            Cincinnati, Dallas, and San Francisco that implemented de-escalation
+             policies in 2016. 
+
+          </p>
         </div>
+          <h2 class='section-header'>Examining the effects of de-escalation policy</h2>
+          <div class='mini-spacer'></div>
+          
         <div id='policy-graph'>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.1.0/Chart.min.js"></script>
 
@@ -493,24 +547,29 @@
         </script>
         </div>
         <div class='description'>
-          There has been a recent push for police departments to offer de-escalation training,
-          but how successful has it been in the past? Although we cannot isolate the direct effects
-          of de-escalation training given our data, it is still appropriate to examine
-          any potential associations. We looked at 4 cities that all implemented de-escalation
-          training practices with in their respective police departments, and can see
-          a temporary decrease in the rate of police shootings, but it appears as if that
-          association does not last long. Are these policies successful, or is the system
-          biased in a way in which police officers do not have to face punishment for failure
-          to follow the rules?
+          <p>Though we thought we spotted soft correlations for implementation of 
+          policies to drop death rates in Cincinnati and Denver, two cities don’t
+           follow the same trend. From this we concluded that there are so many 
+           other factors that could have affected this result, and thus it is 
+           premature to identify a direct causation although there is a chance 
+           that implementation of de-escalation policies could have definitely 
+           been one of many factors.</p>
+          <p>The next scope of exploration was heavily influenced by the <a href="https://www.statesmanjournal.com/story/news/2020/12/05/black-lives-matter-blm-protests-march-salem-oregon-police/3837269001/">current movements</a>
+            movements that fiercely call for cops to be accountable for their 
+            aggressive actions. As we have already lost so many individuals to 
+            such an inequitable system of policing, it is only indispensable for 
+            strict consequences to follow all brutality against innocent civilians. 
+            Our exploration investigates how much accountability is held against 
+            officers who abuse their authority.</p>
         </div>
       </div>
 
-      <div style="text-align: center;">
-        <div class='section-header'>
-          <h2>How many police officers do you think are held accountable 
-            for their actions per 100?</h2>
-        </div>
-        <div id="grids" style="position: relative; margin: 0 auto; overflow: hidden; text-align: center;">
+      <div>
+        <div class='section-spacer'></div>
+          <h2 class='section-header' style="margin-bottom: 15px;">Out of 100, how many police officers do you think are held accountable 
+            for their actions?</h2>
+            <div id='mini-spacer'></div>
+        <div id="grids" style="position: relative; margin: 0 auto; text-align: center;">
           <div style="margin: auto 1.5em; display: inline-block;">
             <div id="officer_grid" style="float: left; margin-right: 10px;"></div>
             <div id="soln-grid" style="float: right; margin-left: 10px;"><button type="button" onclick="showResults()" id="guess-btn">See actual number</button></div>
@@ -519,21 +578,35 @@
         
         <p class='description'>You guessed <b><span id='guess'>__</span></b> officers.</p>
         <div id='soln-text' style='visibility: hidden' class='description'>
-          <p>From 8543 cases between 2013-present, only 1.4% of officers (117) where charged</p>
-          <p>Of those only the results of 48 are known; 19 were convicted, 29 were aquitted</p>
+          <p>After looking into 8543 cases that happened from 2013 to 2020, 
+            only 117 officers were charged which means that only 1.4% were held 
+            accountable for controversial actions. Moreover, of those small 
+            numbers of officers, the official record shows us the results of 
+            only 48 officers in which a total of 19 were convicted with 29 were 
+            aquitted. </p>
+            
+            <p>Having a total of 19 officers out of 117 officers sentenced 
+            within the past 7 years on record shows the immense amount of power 
+            exercised abusively at the expense of the victims. Though accidental 
+            killings should not happen under proper training and education, they 
+            sometimes happen without malicious intent, and yet in these cases, 
+            cops need to be held accountable for their actions for preventative 
+            measures for the future. As of today, police accountability is far 
+            below what is expected from a just sentiment. 
+          </p>
         </div>
-        <div id="officer_grid"></div>
       </div>
 
         <div class='section' id='transparency'>
-          <div class='section-spacer'></div>
             <h2 class='section-header'>Pushing for Transparency</h2>
             <div class='description'>
               <p>Working with public data, throughout the whole process, we had
                  to be deliberate about how we merged datasets and the type of 
                  connections that we drew from the numbers. The sets of data we 
                  used for this project had many limitations in discovering 
-                 causations amongst the many associations. For example, the 
+                 causations amongst the many associations. </p>
+                 
+                 <p>For example, the 
                  lack of transparent police data that examines the effects of 
                  policies on police brutality rates does not allow us to make 
                  any causal assumptions of any relationships between policies 
@@ -542,7 +615,9 @@
                  citizen, data transparency would educate our population about 
                  what is actually happening in our country, though limitations 
                  might be caused from system level managements of police 
-                 departments. Having done many explorations with data regarding 
+                 departments. </p>
+                 
+                 <p>Having done many explorations with data regarding 
                  police brutality and racial equity, we have come to the 
                  conclusion that there is so much vulnerability for justice in 
                  the data because of the lack of detail. At the end of the day, 
@@ -553,14 +628,35 @@
             </div>
             
         </div>
+
+        <div class='section'>
+          <h2 class='section-header'>Credits and Resources</h2>
+          <div class='description'>
+            <p><strong>Group Members:</strong></p>
+            <ul>
+              <li>Asad Sheikh</li>
+              <li>Vivian Sun</li>
+              <li>Mei Leng</li>
+              <li>Julie Choi</li>
+            </ul>
+            <p><strong>Resources:</strong></p>
+            <ul>
+              <li><a href='https://www.kaggle.com/jpmiller/police-violence-racial-equity'>Police Violence and Racial Equity - Kaggle </a>: datasets</li>
+              <li><a href='https://github.com/alvarotrigo/fullpage.js'>fullPage.js</a>: used to create webpage</li>
+              <li><a href='https://d3js.org/'>d3.js</a>: used to create animated map</li>
+              <li><a href='https://www.chartjs.org/'>Chart.js</a>: used to create pie chart and de-escalation graph</li>
+              <li><a href='https://plotly.com/chart-studio/'>Chart Studio</a>: used to create violent crime and police brutality graph</li>
+            </ul>
+          </div>
+        </div>
     </div>
-    <script type="text/javascript" src="vendors/scrolloverflow.min.js"></script>
+    <script type="text/javascript" src="js/scrolloverflow.min.js"></script>
     <script type="text/javascript" src="js/fullpage.js"></script>
     <script type="text/javascript">
 	var myFullpage = new fullpage('#fullpage', {
         autoScrolling: false,
         fitToSection: false,
-        scrollOverflow: true,
+        scrollBar: false,
         licenseKey: 'BF32E12A-63184355-9B028F97-1B1558F1',
 		    sectionsColor: ['#f2f2f2', '#f2f2f2', '#f2f2f2', 'f2f2f2', '#f2f2f2']
 	});
