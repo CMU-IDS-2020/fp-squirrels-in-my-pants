@@ -33,17 +33,24 @@ Lastly, we wrapped up our narrative by calling for data transparency. As we work
 
 Beginning with our analyses, we first saw a disparity in racial breakdown of police brutality incidents in relation to population percentages. While Black people only consist of about 12% of the population, they composed 26% of police brutality incidents from 2013 to 2019. Additionally, while White people are 61% of the population, they compose about 44% of police killings. This indicated that Black people are victims of police brutality at a higher rate than other races despite being a lower percentage of the population, while White people are killed at a lower rate than other races despite being a higher percentage of the population. While we can see this association between race and police brutality, it does not answer the full question. It is only an association at this point.
 
-We then dived into a more geographic approach by seeing if specific cities that were more prone to police brutality had other indicators that could help us understand more about police brutality rates. Based on our graph comparing violent crime rates to police brutality rates, we noticed that there was no strong association between the two. 
+We then dived into a more geographic approach by seeing if specific cities that were more prone to police brutality had other indicators that could help us understand more about police brutality rates. Based on our graph comparing violent crime rates to police brutality rates, we noticed that there was no strong association between the two. For example, Nashville has a police brutality rate of 2.6%, compared to it's violent crime rate, which is 12.4%. In comparison, New Orleans has a similar violent crime rate of 11.5%, but it has almost double the police brutality rate with a rate of 5%.
 
-We then dived into specific cities and took a look at individual policies implemented. When taking a look at de-escalation policies, we can see that there is an immediate drop for cities that implemented it, but then the rates rose again in the examples of Denver and Cincinatti. Because of the nature of public data, we are limited in understanding the direct effects of all policies
+Next, we looked into specific cities and took a look at individual policies implemented. When taking a look at de-escalation policies, we can see that there is an immediate drop for cities that implemented it, but then the rates rose again in the examples of Denver and Cincinatti. Because of the nature of public data, we are limited in understanding the direct effects of policies as the data does not account for whether or not de-escalation policies played any role in the how police officers engaged with the victims.
+
+After examining police brutality rates in conjunction with de-escalation policy implementation dates, we then looked at charging police officers. Out of 8543 cases between 2013-present, only 1.4% of officers (117) where charged. This is simply the first step into being held accountable. After being charged, we only knew 48 results - 19 were convicted and 29 were acquitted of all charges. The incredibly low conviction rate is quite possibly another reason why policies are not as effective in reducing police brutality rates - we are simply not holding officers accountable and are allowing them to continue practicing the same injustices they practiced when they took the lives of those they killed. 
 
 ## Discussion
 
-From our results, we can see a clear 
+A common argument presented in discourse of police brutality is that victims live in more violent areas which makes them more prone to falling victim to police brutality. While this is economically infeasible for people to simply move to "safer" areas, we can also see that there isn't always an association with violent crime rates and police brutality rates. Instead, we must consider the the systemic injustices present. These take root in inherent racism as well as lack of transparency and accountability among police officers.
 
-A common argument presented in discourse of police brutality is that 
+From our results, we can see an association between race and victims of police brutality. As Black people are killed at higher rates relative to their population percentage, we are able to visualize the systemic racism of police forces across the United States and how they are disproportionately affecting Black lives.
 
-There are some limitations
+There are some limitations to this data. We must consider the biases within the data itself. Many police departments do not require comprehensive reporting, thus allowing important details to be glossed over or ignored. When holding officers accountable, there is a lot that is unknown about the cases - were officers charged, and were they convicted? Knowing only 48 of the outcomes of 117 charges further highlights the 
 
+When it is a life that is at stake, there should not be an excuse to inaccurately represent or to even hide data that could save the lives of many others. Additionally, it is not permissible to allow people to commit such crimes again. Officers should be held accountable for their actions at a greater rate than they are today.
 
 ## Future Work
+
+We would love to continue to examine the effect of specific policies on how they impacted police brutality rates; however, there is a lack of transparent data from police departments across the country. 
+
+Black Lives Matter.
