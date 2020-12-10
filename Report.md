@@ -51,6 +51,10 @@ When it is a life that is at stake, there should not be an excuse to inaccuratel
 
 ## Future Work
 
-We would love to continue to examine the effect of specific policies on how they impacted police brutality rates; however, there is a lack of transparent data from police departments across the country. 
+We would love to continue to examine the effect of specific policies on how they impacted police brutality rates; however, there is a lack of transparent data from police departments across the country. Additionally, we would be interested in extending and exploring racial breakdowns of traffic stops and other forms of citizen-police interactions to determine if biases translate across all mediums of interaction.
+
+With the influence of public data so prevalent in this project, many of the future steps rely upon police departments being willing to collect and release more data that includes characteristics such as race and ethnicity at traffic stops and arrests as well as comprehensive reporting. While we critique police departments for their data practices, we must also consider the infrastructure in which they operate. With few contractors and vendor lock-in, many police departments to not have access to the infrastructure needed for the aforementioned data practices.
+
+There are important investments to be made in regulating the police in order for equality to truly be achieved.
 
 Black Lives Matter.
