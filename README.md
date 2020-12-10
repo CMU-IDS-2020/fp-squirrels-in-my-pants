@@ -1,6 +1,6 @@
 # CMU Interactive Data Science Final Project
 
-* **Online URL**: [Say Their Names](cmu-ids-2020.github.io/fp-squirrels-in-my-pants)
+* **Online URL**: [Say Their Names](https://www.cmu-ids-2020.github.io/fp-squirrels-in-my-pants)
 * **Team members**:
   * Contact person: asadalis@andrew.cmu.edu
   * jjchoi@andrew.cmu.edu
