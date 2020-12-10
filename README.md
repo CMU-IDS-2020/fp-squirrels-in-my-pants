@@ -10,10 +10,10 @@
 
 ## Work distribution
 
-Asad: Worked on creating basic webpage outline as well as the map visualization and helped with de-escalation research
-Julie: Worked on compiling resources for call to action, adding to narrative elements of the project
-Mei: Created pie chart on race, de-escalation graph
-Vivian: Worked on incorporating guessing game into project, helped with overall HTML/CSS/JS
+* Asad: Worked on creating basic webpage outline as well as the map visualization and helped with de-escalation research
+* Julie: Worked on compiling resources for call to action, adding to narrative elements of the project
+* Mei: Created pie chart on race, de-escalation graph
+* Vivian: Worked on incorporating guessing game into project, helped with overall HTML/CSS/JS
 
 ## Deliverables
 
