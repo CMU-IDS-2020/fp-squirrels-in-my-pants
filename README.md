@@ -10,7 +10,10 @@
 
 ## Work distribution
 
-Update towards the end of the project.
+Julie: Worked on compiling resources for call to action, adding to narrative elements of the project
+Asad: Worked on creating basic webpage outline as well as the map visualization and helped with de-escalation research
+Vivian: Worked on incorporating guessing game into project, helped with overall HTML/CSS/JS
+Mei: Created pie chart on race, de-escalation graph
 
 ## Deliverables
 
@@ -21,12 +24,12 @@ Update towards the end of the project.
 
 ### Design review
 
-- [ ] Develop a prototype of your project.
-- [ ] Create a 5 minute video to demonstrate your project and lists any question you have for the course staff. The contact should submit the video on Canvas.
+- [x] Develop a prototype of your project.
+- [x] Create a 5 minute video to demonstrate your project and lists any question you have for the course staff. The contact should submit the video on Canvas.
 
 ### Final deliverables
 
-- [ ] All code for the project should be in the repo.
-- [ ] A 5 minute video demonstration.
-- [ ] Update Readme according to Canvas instructions.
+- [x] All code for the project should be in the repo.
+- [x] A 5 minute video demonstration.
+- [x] Update Readme according to Canvas instructions.
 - [ ] A detailed project report. The contact should submit the video and report as a PDF on Canvas.
