@@ -3,11 +3,11 @@ body {
 }
 
 #play-button {
-    background: #f08080;
+    background: #c9ccb8;
     padding-right: 26px;
     border-radius: 3px;
     border: none;
-    color: white;
+    color: black;
     margin: 0;
     padding: 0 12px;
     width: 60px;
@@ -84,7 +84,7 @@ body {
 .content p {
     font-size: 24px;
     margin: auto;
-    width:50%;
+    width: 50%;
 }
 
 #map {
@@ -93,13 +93,32 @@ body {
 }
 
 #guess button {
-    background-color: #66aad8; /* Green */
+    background-color: #c9ccb8; /* Green */
     border: none;
-    color: white;
+    color: black;
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
     cursor:pointer;
+    border-radius: 3px;
   }
+
+#pie-chart {
+    margin: auto;
+    width: 70%;
+}
+
+.description {
+  margin: auto;
+  width: 70%;
+  font-size: 20px;
+}
+
+.section-header {
+  margin: auto;
+  width: 70%;
+  font-size: 36px;
+}
+
