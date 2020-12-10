@@ -44,7 +44,7 @@
                   .pauseFor(1000)
                   .deleteChars(14)
                   .pauseFor(100)
-                  .typeString('for Black Lives.')
+                  .typeString('Black Lives.')
                   .pauseFor(1500)
                   .start();
 
@@ -291,6 +291,9 @@
 
         <div class='section' id='race'>
           <div class='section-spacer'></div>
+          <div class='description'>
+            This project examines collected data on police brutality incidents between 2013 and 2019.
+          </div>
           <div class='section-spacer'></div>
           <div id='pie-chart'>
             <canvas id="myChart"></canvas>
@@ -383,31 +386,141 @@
               percentage of the population.
             </div>
           </div>
+          
 
         </div>
-
+        <div class='section-spacer'>
+        </div>
       <div class='section' id='crime-rate'>
-        <iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plotly.com/~mangofuntime/1" height="525" width="100%"></iframe>
+        <div class='section-spacer'></div>
+          <h2 class='section-header'>What contributes to high rates of police brutality?</h2>
+        <iframe id="igraph" scrolling="no" style="border:none; margin: auto; width: 70%;" seamless="seamless" src="https://plotly.com/~asadsheikh0/1" height="525" width="100%"></iframe>
+        <div class='description'>
+          Taking a look at the rates of police killings across different cities,
+          we examined the violent crime rates in a side-by-side view with the homicide rates.
+          From this, we are able to see that there is not an association between violent 
+          crime rates and police homicide rates. While we are limited to only exploring associations,
+          we must take a look at other factors that influence police killing rates such as police force policies.
+        </div>
       </div>
 
       <div class='section' id='policy'>
+        <div class='section-spacer'></div>
+        <div class='section-header'>
+          <h2>Examining the effects of de-escalation policy</h2>
+        </div>
+        <div id='policy-graph'>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.1.0/Chart.min.js"></script>
+
+        <div>
+            <canvas id="LineWithLine" width="600" height="400" padding="0" margin = "auto" display='block'></canvas>
+        </div>
+
+        <script>
+        var data = {
+            labels: [2015,2016,2017,2018,2019],
+            // datasets: [{
+            //     data: [12, 3, 2, 1, 8, 8, 2, 2, 3, 5, 7, 1]
+            // }]
+            datasets: [{ 
+                data: [36.57,
+                        45.94,
+                        22.68,
+                        27.91,
+                        42.63],
+                label: "Denver",
+                borderColor: "#3e95cd",
+                fill: false
+              }, { 
+                data: [70.15,
+                        50.05,
+                        19.89,
+                        39.66,
+                        26.32],
+                label: "Cincinatti",
+                borderColor: "#8e5ea2",
+                fill: false
+              }, { 
+                data: [8.45,
+                        9.82,
+                        5.21,
+                        2.97,
+                        8.19],
+                label: "Dallas",
+                borderColor: "#3cba9f",
+                fill: false
+              }, { 
+                data: [10.42,
+                        3.44,
+                        6.82,
+                        5.66,
+                        3.40],
+                label: "San Francisco",
+                borderColor: "#e8c3b9",
+                fill: false
+              }
+            ]
+        };
+
+        var ctx = document.getElementById("LineWithLine").getContext("2d");
+
+        Chart.types.Line.extend({
+            name: "LineWithLine",
+            draw: function () {
+                Chart.types.Line.prototype.draw.apply(this, arguments);
+
+                var point = this.datasets[0].points[this.options.lineAtIndex]
+                var scale = this.scale
+
+                // draw line
+                this.chart.ctx.beginPath();
+                this.chart.ctx.moveTo(point.x, scale.startPoint + 24);
+                this.chart.ctx.strokeStyle = '#ff0000';
+                this.chart.ctx.lineTo(point.x, scale.endPoint);
+                this.chart.ctx.stroke();
+
+                // write TODAY
+                this.chart.ctx.textAlign = 'center';
+                this.chart.ctx.fillText("policy implemented", point.x, scale.startPoint + 12);
+            }
+        });
+
+        new Chart(ctx).LineWithLine(data, {
+            datasetFill : false,
+            lineAtIndex: 1
+        });
+        </script>
+        </div>
+        <div class='description'>
+          There has been a recent push for police departments to offer de-escalation training,
+          but how successful has it been in the past? Although we cannot isolate the direct effects
+          of de-escalation training given our data, it is still appropriate to examine
+          any potential associations. We looked at 4 cities that all implemented de-escalation
+          training practices with in their respective police departments, and can see
+          a temporary decrease in the rate of police shootings, but it appears as if that
+          association does not last long. Are these policies successful, or is the system
+          biased in a way in which police officers do not have to face punishment for failure
+          to follow the rules?
+        </div>
       </div>
 
-      <div class='section' id='guess'>
-        <div class='section-spacer'></div>
-        <div class='description'>
-          <div class='section-header'>
-            <h2>How many police officers do you think are held accountable 
-              for their actions per 100?</h2>
+      <div style="text-align: center;">
+        <div class='section-header'>
+          <h2>How many police officers do you think are held accountable 
+            for their actions per 100?</h2>
+        </div>
+        <div id="grids" style="position: relative; margin: 0 auto; overflow: hidden; text-align: center;">
+          <div style="margin: auto 1.5em; display: inline-block;">
+            <div id="officer_grid" style="float: left; margin-right: 10px;"></div>
+            <div id="soln-grid" style="float: right; margin-left: 10px;"><button type="button" onclick="showResults()" id="guess-btn">See actual number</button></div>
           </div>
         </div>
         
-        <div id="grids" style="margin-left: auto; margin-right: auto; width: 70%;">
-          <div id="officer_grid" style="float: left"></div>
-          <div id="soln-grid" style="float: right"><button type="button" onclick="showResults()" id="guess-btn">See actual number</button></div>
+        <p class='description'>You guessed <b><span id='guess'>__</span></b> officers.</p>
+        <div id='soln-text' style='visibility: hidden' class='description'>
+          <p>From 8543 cases between 2013-present, only 1.4% of officers (117) where charged</p>
+          <p>Of those only the results of 48 are known; 19 were convicted, 29 were aquitted</p>
         </div>
-        
-        <p>You guessed <b><span id='guess'>__</span></b> officers.<span id='soln-text'></span></p>
         <div id="officer_grid"></div>
       </div>
 
@@ -435,7 +548,6 @@
                  we need to remember that once an arrest occurs, even if a 
                  report is required, the cops complete that report without a 
                  single word from a possibly innocent arrested person.
-
             </p>
             </div>
             
@@ -446,6 +558,7 @@
     <script type="text/javascript">
 	var myFullpage = new fullpage('#fullpage', {
         autoScrolling: false,
+        fitToSection: false,
         licenseKey: 'BF32E12A-63184355-9B028F97-1B1558F1',
 		    sectionsColor: ['#f2f2f2', '#f2f2f2', '#f2f2f2', 'f2f2f2', '#f2f2f2']
 	});
