@@ -17,14 +17,21 @@
     </style>
   </head>
   <body>
-    <h4>How many police officers do you think are held accountable for their actions per 100?</h4>
-    <div id="grids" style="margin-left: auto; margin-right: auto;">
-      <div id="officer_grid" style="float: left"></div>
-      <div id="soln-grid" style="float: right"><button type="button" onclick="showResults()" id="guess-btn">See actual number</button></div>
+    <div style="text-align: center;">
+      <h4>What percentage of police officers do you think have been held accountable for their actions from 2013-present?</h4>
+      <div id="grids" style="position: relative; margin: 0 auto; overflow: hidden; text-align: center;">
+        <div style="margin: auto 1.5em; display: inline-block;">
+          <div id="officer_grid" style="float: left; margin-right: 10px;"></div>
+          <div id="soln-grid" style="float: right; margin-left: 10px;"><button type="button" onclick="showResults()" id="guess-btn">See actual number</button></div>
+        </div>
+      </div>
+      
+      <p>You guessed <b><span id='guess'>__</span></b> officers.</p>
+      <div id='soln-text' style='visibility: hidden'>
+        <p>From 8543 cases between 2013-present, only 1.4% of officers (117) where charged</p>
+        <p>Of those only the results of 48 are known; 19 were convicted, 29 were aquitted</p>
+      </div>
+      <div id="officer_grid"></div>
     </div>
-    
-    <p>You guessed <b><span id='guess'>__</span></b> officers.<span id='soln-text'></span></p>
-    <div id="officer_grid"></div>
-    
   </body>
 </html>
