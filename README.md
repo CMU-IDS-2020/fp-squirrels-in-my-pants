@@ -2,18 +2,18 @@
 
 * **Online URL**: TODO
 * **Team members**:
-  * Contact person: jjchoi@andrew.cmu.edu
-  * asadalis@andrew.cmu.edu
+  * Contact person: asadalis@andrew.cmu.edu
+  * jjchoi@andrew.cmu.edu
   * mmleng@andrew.cmu.edu
   * viviansu@andrew.cmu.edu
 * **Track**: Narrative
 
 ## Work distribution
 
-Julie: Worked on compiling resources for call to action, adding to narrative elements of the project
 Asad: Worked on creating basic webpage outline as well as the map visualization and helped with de-escalation research
-Vivian: Worked on incorporating guessing game into project, helped with overall HTML/CSS/JS
+Julie: Worked on compiling resources for call to action, adding to narrative elements of the project
 Mei: Created pie chart on race, de-escalation graph
+Vivian: Worked on incorporating guessing game into project, helped with overall HTML/CSS/JS
 
 ## Deliverables
 
