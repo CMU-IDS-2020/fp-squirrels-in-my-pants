@@ -11,6 +11,8 @@ Systemic racism is ingrained in many of America’s longstanding institutions. W
 
 ## Related Work
 
+There have been previous efforts to understand the racial disparity of police brutality as well as efforts to make police data on policies publicly available. Specific efforts, such as the [Use of Force Project](http://useofforceproject.org/#project), exist to educate the public on what policies are implemented in specific police departments across the country, but there wasn't a deep dive into specific cities and the local impacts of those policies. Additionally, the [Police Data Initiative](https://www.policedatainitiative.org/) helps give access to datasets on Police Brutality incidents in individual cities, but there is no analysis done to see any patterns over time. Our project sought to bridge this gap by combining information on implemented policies in specific cities and visualizing the police department's response to that, in coordination with the data to help dive into specific case studies of individual cities.
+
 ## Methods
 
 ## Results
