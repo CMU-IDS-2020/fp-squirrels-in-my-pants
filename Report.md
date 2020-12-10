@@ -35,6 +35,8 @@ Beginning with our analyses, we first saw a disparity in racial breakdown of pol
 
 We then dived into a more geographic approach by seeing if specific cities that were more prone to police brutality had other indicators that could help us understand more about police brutality rates. Based on our graph comparing violent crime rates to police brutality rates, we noticed that there was no strong association between the two. 
 
+We then dived into specific cities and took a look at individual policies implemented. When taking a look at de-escalation policies, we can see that there is an immediate drop for cities that implemented it, but then the rates rose again in the examples of Denver and Cincinatti. Because of the nature of public data, we are limited in understanding the direct effects of all policies
+
 ## Discussion
 
 From our results, we can see a clear 
