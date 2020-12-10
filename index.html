@@ -7,13 +7,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap" rel="stylesheet">    
     <script src="https://d3js.org/d3.v4.min.js"></script>
     <script src="https://d3js.org/topojson.v1.min.js"></script>
-    <script src="https://d3js.org/queue.v1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/moment.min.js"></script>
     <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="js/main.js" defer></script>
-
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    
 </head>
 <body>
     <div id="fullpage">
@@ -68,13 +65,17 @@
             </script>
             <p id='main-title'></p>
         </div>
-        <div class='section'>
+
+        <div class='section' id='map-introduction'>
           <div class='section-spacer'></div>
-          <div class='content'>
+          <div class='description'>
             <p>Before we examine the topic of police brutality in America, 
               we must pay tribute to those who have lost their lives to 
               police brutality. They are not just statistics, but rather 
-              individuals who fell victim to a system riddled with injustice. 
+              individuals who fell victim to a system riddled with injustice.
+              Even though their deaths were a moment in time, the scars
+              inflicted upon their communities, their families, their livelihoods,
+              will forever remain ingrained in our history.
           </p>
           <p>We must <strong>say their names</strong>.</p>
           </div>
@@ -290,6 +291,7 @@
 
         <div class='section' id='race'>
           <div class='section-spacer'></div>
+          <div class='section-spacer'></div>
           <div id='pie-chart'>
             <canvas id="myChart"></canvas>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.min.js"></script>
@@ -365,38 +367,78 @@
             })
             </script>
             </div>
+            <div class='section-spacer'></div>
           <div id='pie-description'>
-            hello
+            
+            <div class='description'>
+              We first examined the proportion of police brutality incidents on 
+              with a racial breakdown. In this graph, the inner ring represents
+              the rate at which members of a certain race are killed by police,
+              while the outer ring represents the percentage of the population 
+              of the corresponding race.
+            </div>
+            <div class='description'>
+              From this, it is evident that Black people are killed at a rate
+              that is double the rate of other races, despite being a smaller
+              percentage of the population.
+            </div>
           </div>
 
         </div>
 
-        <div class='section' id='guess'>
-          <h4>How many police officers do you think are held accountable for their actions per 100?</h4>
-          <div id="officer_grid"></div>
-          <p>You guessed <b><span id='guess'>__</span></b> officers.</p>
-          <button type="button" onclick="showResults">See actual number</button>
-        </body>
+      <div class='section' id='crime-rate'>
+        <iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plotly.com/~mangofuntime/1" height="525" width="100%"></iframe>
+      </div>
+
+      <div class='section' id='policy'>
+      </div>
+
+      <div class='section' id='guess'>
+        <div class='section-spacer'></div>
+        <div class='description'>
+          <div class='section-header'>
+            <h2>How many police officers do you think are held accountable 
+              for their actions per 100?</h2>
+          </div>
         </div>
+        
+        <div id="grids" style="margin-left: auto; margin-right: auto; width: 70%;">
+          <div id="officer_grid" style="float: left"></div>
+          <div id="soln-grid" style="float: right"><button type="button" onclick="showResults()" id="guess-btn">See actual number</button></div>
+        </div>
+        
+        <p>You guessed <b><span id='guess'>__</span></b> officers.<span id='soln-text'></span></p>
+        <div id="officer_grid"></div>
+      </div>
 
+        <div class='section' id='transparency'>
+          <div class='section-spacer'></div>
+            <h2 class='section-header'>Pushing for Transparency</h2>
+            <div class='description'>
+              <p>Working with public data, throughout the whole process, we had
+                 to be deliberate about how we merged datasets and the type of 
+                 connections that we drew from the numbers. The sets of data we 
+                 used for this project had many limitations in discovering 
+                 causations amongst the many associations. For example, the 
+                 lack of transparent police data that examines the effects of 
+                 policies on police brutality rates does not allow us to make 
+                 any causal assumptions of any relationships between policies 
+                 or budgets and police brutality rates. Not only from a data 
+                 perspective but also from the perspective of an American 
+                 citizen, data transparency would educate our population about 
+                 what is actually happening in our country, though limitations 
+                 might be caused from system level managements of police 
+                 departments. Having done many explorations with data regarding 
+                 police brutality and racial equity, we have come to the 
+                 conclusion that there is so much vulnerability for justice in 
+                 the data because of the lack of detail. At the end of the day, 
+                 we need to remember that once an arrest occurs, even if a 
+                 report is required, the cops complete that report without a 
+                 single word from a possibly innocent arrested person.
 
-
-
-        <div class='section'>
-            <h2>Call to Action</h2>
-            <p>Focusing on transparent from police forces.
-                The lack of transparent police data that examines the effects
-                of policies on police brutality rates does not allow us to make
-                any causal assumptions of any relationships between policies or
-                budgets and police brutality rates.
             </p>
-            <p>Some actions to remediate this issues are:</p>
-            <ul>
-                <li>Codifying police data collection and publication in law.</li>
-                <li>Publishing policing budget data.</li>
-                <li>Developing standards for comparison.</li>
-                <li>Facilitating data-driven publication and policy changes.</li>
-            </ul>
+            </div>
+            
         </div>
     </div>
 
@@ -404,8 +446,6 @@
     <script type="text/javascript">
 	var myFullpage = new fullpage('#fullpage', {
         autoScrolling: false,
-        navigation: true,
-        animateAnchors: true,
         licenseKey: 'BF32E12A-63184355-9B028F97-1B1558F1',
 		    sectionsColor: ['#f2f2f2', '#f2f2f2', '#f2f2f2', 'f2f2f2', '#f2f2f2']
 	});
