@@ -1,0 +1,73 @@
+<canvas id="myChart"></canvas>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.min.js"></script>
+
+<script>
+    var ctx = document.getElementById("myChart");
+    var chartData = {
+        labels: [
+    "Black",//Black
+    "White", //White
+    "Native American", //Native American
+    "Asian", //Asian
+    "Pacific Islander", //Pacific Islander
+    "Hispanic" //Hispanic
+  ],
+  datasets: [{ //OUTER RING: POPULATION
+    data: [0.122996421,
+            0.610651368,
+            0.006613376,
+            0.053784472,
+            0.001626191,
+            0.178127579],
+            backgroundColor: [
+      "#A92D71",
+      "#3A4F6F",
+      "#91ADCF",
+      "#F6C862",
+      "#8DB16E",
+      "#BA7E97"
+    ],
+    hoverBackgroundColor: [
+      "#792051",
+      "#233043",
+      "#5f88b9",
+      "#f2b226",
+      "#709550",
+      "#a65979"
+    ]
+  }, { //INNER RING: DEATH
+    data: [0.256655738,
+            0.448131148,
+            0.014557377,
+            0.015737705,
+            0.005508197,
+            0.17547541],
+    backgroundColor: [
+      "#A92D71",
+      "#3A4F6F",
+      "#91ADCF",
+      "#F6C862",
+      "#8DB16E",
+      "#BA7E97"
+    ],
+    hoverBackgroundColor: [
+      "#792051",
+      "#233043",
+      "#5f88b9",
+      "#f2b226",
+      "#709550",
+      "#a65979"
+    ]
+  }]
+};
+var pieChart = new Chart(ctx, {
+  type: 'doughnut',
+  data: chartData,
+  options: {
+    cutoutPercentage: 40,
+    legend: {
+      position: 'left'
+    }
+  }
+})
+</script>
