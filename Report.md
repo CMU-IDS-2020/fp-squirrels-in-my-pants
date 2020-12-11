@@ -1,6 +1,5 @@
 # Final Project Report
 
-![](images/intro.gif)
 
 <p align="center">
   <img src="images/intro.gif" />
