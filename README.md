@@ -11,6 +11,11 @@
 ## Overview
 <img src="overview.gif"/>
 
+## Abstract
+The issue of police brutality has been brought into the limelight recently, and this narrative 
+explores the rates of police brutality over the years to highlight biases and compares rates 
+to related factors to explore potential correlations.
+
 ## Work distribution
 
 * Asad: Worked on creating basic webpage outline as well as the map visualization and helped with de-escalation research, wrote report, added to narrative elements of the project
