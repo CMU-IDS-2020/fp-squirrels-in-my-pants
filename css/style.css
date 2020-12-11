@@ -1,5 +1,6 @@
 body {
     font-family: 'Lora', serif;
+    background-color: #f2f2f2;
 }
 
 #play-button {
@@ -64,7 +65,7 @@ body {
     margin: 0rem;
 }
 
-#title-spacer {
+.title-spacer {
     height: 30%;
 }
 
@@ -79,6 +80,7 @@ body {
 
 .section-spacer {
     height:5%;
+    margin-top: 30px;
 }
 
 .content p {
@@ -108,12 +110,13 @@ body {
 #pie-chart {
     margin: auto;
     width: 70%;
+    max-height: 500px;
 }
 
 .description {
   margin: auto;
   width: 70%;
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .section-header {
@@ -122,3 +125,29 @@ body {
   font-size: 36px;
 }
 
+#policy-graph {
+  margin: auto;
+  width: 70%;
+}
+
+#crime-rate {
+  margin: auto;
+  width: 70%;
+}
+
+.mini-spacer {
+  height:2%;
+  margin-top: 15px;
+}
+
+button {
+  background: #c9ccb8;
+  padding-right: 26px;
+  border-radius: 3px;
+  border: none;
+  color: black;
+  margin: 0;
+  padding: 6px 12px;
+  cursor: pointer;
+  margin-left:12px;
+}

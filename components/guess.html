@@ -1,5 +1,8 @@
 <html>
   <head>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap" rel="stylesheet">
     <script src="main.js" defer></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <style>
@@ -18,7 +21,10 @@
   </head>
   <body>
     <div style="text-align: center;">
-      <h4>What percentage of police officers do you think have been held accountable for their actions from 2013-present?</h4>
+      <div class='section-header'>
+        <h2>How many police officers do you think are held accountable 
+          for their actions per 100?</h2>
+      </div>
       <div id="grids" style="position: relative; margin: 0 auto; overflow: hidden; text-align: center;">
         <div style="margin: auto 1.5em; display: inline-block;">
           <div id="officer_grid" style="float: left; margin-right: 10px;"></div>
@@ -26,8 +32,8 @@
         </div>
       </div>
       
-      <p>You guessed <b><span id='guess'>__</span></b> officers.</p>
-      <div id='soln-text' style='visibility: hidden'>
+      <p class='description'>You guessed <b><span id='guess'>__</span></b> officers.</p>
+      <div id='soln-text' style='visibility: hidden' class='description'>
         <p>From 8543 cases between 2013-present, only 1.4% of officers (117) where charged</p>
         <p>Of those only the results of 48 are known; 19 were convicted, 29 were aquitted</p>
       </div>
