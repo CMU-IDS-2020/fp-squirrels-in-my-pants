@@ -1,15 +1,44 @@
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.1.0/Chart.min.js"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.min.js"></script>
 <div>
-    <canvas id="LineWithLine" width="600" height="400"></canvas>
+  <canvas id="line-chart" width="600" height="400"></canvas>
 </div>
-
 <script>
-var data = {
+const verticalLinePlugin = {
+  getLinePosition: function (chart, pointIndex) {
+      const meta = chart.getDatasetMeta(0); // first dataset is used to discover X coordinate of a point
+      const data = meta.data;
+      return data[pointIndex]._model.x;
+  },
+  renderVerticalLine: function (chartInstance, pointIndex) {
+      const lineLeftOffset = this.getLinePosition(chartInstance, pointIndex);
+      const scale = chartInstance.scales['y-axis-0'];
+      const context = chartInstance.chart.ctx;
+
+      // render vertical line
+      context.beginPath();
+      context.strokeStyle = '#A92D71';
+      context.moveTo(lineLeftOffset, scale.top+100);
+      context.lineTo(lineLeftOffset, scale.bottom);
+      context.stroke();
+
+      // write label
+      context.fillStyle = "#A92D71";
+      context.textAlign = 'center';
+      context.fillText('De-escalation Implemented', lineLeftOffset, scale.top+80);
+  },
+
+  afterDatasetsDraw: function (chart, easing) {
+      if (chart.config.lineAtIndex) {
+          chart.config.lineAtIndex.forEach(pointIndex => this.renderVerticalLine(chart, pointIndex));
+      }
+  }
+  };
+
+  Chart.plugins.register(verticalLinePlugin);
+
+
+  var data = {
     labels: [2015,2016,2017,2018,2019],
-    // datasets: [{
-    //     data: [12, 3, 2, 1, 8, 8, 2, 2, 3, 5, 7, 1]
-    // }]
     datasets: [{ 
         data: [36.57,
                 45.94,
@@ -17,7 +46,7 @@ var data = {
                 27.91,
                 42.63],
         label: "Denver",
-        borderColor: "#3e95cd",
+        borderColor: "#91ADCF",
         fill: false
       }, { 
         data: [70.15,
@@ -26,7 +55,7 @@ var data = {
                 39.66,
                 26.32],
         label: "Cincinatti",
-        borderColor: "#8e5ea2",
+        borderColor: "#91ADCF",
         fill: false
       }, { 
         data: [8.45,
@@ -35,7 +64,7 @@ var data = {
                 2.97,
                 8.19],
         label: "Dallas",
-        borderColor: "#3cba9f",
+        borderColor: "#91ADCF",
         fill: false
       }, { 
         data: [10.42,
@@ -44,7 +73,7 @@ var data = {
                 5.66,
                 3.40],
         label: "San Francisco",
-        borderColor: "#e8c3b9",
+        borderColor: "#91ADCF",
         fill: false
       }, { 
         data: [5.02,
@@ -52,45 +81,42 @@ var data = {
                 5.44,
                 5.67,
                 5.52],
-        label: "San Francisco",
-        borderColor: "#e8c3b9",
+        label: "National Average",
+        borderColor: "#3A4F6F",
         fill: false
-      },
+      }
     ]
-};
-
-var ctx = document.getElementById("LineWithLine").getContext("2d");
-
-Chart.types.Line.extend({
-    name: "LineWithLine",
-    draw: function () {
-        Chart.types.Line.prototype.draw.apply(this, arguments);
-
-        var point = this.datasets[0].points[this.options.lineAtIndex]
-        var scale = this.scale
-
-        // draw line
-        this.chart.ctx.beginPath();
-        this.chart.ctx.moveTo(point.x, scale.startPoint + 24);
-        this.chart.ctx.strokeStyle = '#A92D71';
-        this.chart.ctx.lineTo(point.x, scale.endPoint);
-        this.chart.ctx.stroke();
-
-        // write TODAY
-        this.chart.ctx.textAlign = 'center';
-        this.chart.ctx.fillText("De-escalation Implemented", point.x, scale.startPoint + 12);
-    }
-});
-
-new Chart(ctx).LineWithLine(data, {
-    datasetFill : false,
-    lineAtIndex: 1
-    // options: {
-    //     scales: {
-    //         xAxes: [{
-    //             labelString='Year'
-    //         }]
-    //     }
-    // }
-});
+  };
+  new Chart(document.getElementById("line-chart"), {
+     type: 'line',
+     data: data,
+     label: 'Progress',
+     options: {
+      responsive: true,
+      scales: {
+        xAxes: [ {
+          // type: 'time',
+          display: true,
+          scaleLabel: {
+            display: true,
+            labelString: 'Year'
+          },
+          ticks: {
+            major: {
+              fontStyle: 'bold',
+              fontColor: '#FF0000'
+            }
+          }
+        } ],
+        yAxes: [ {
+          display: true,
+          scaleLabel: {
+            display: true,
+            labelString: 'Police Homicide Rate (10^6)'
+          }
+        } ]
+      }
+    },
+    lineAtIndex: [1]
+  })
 </script>
