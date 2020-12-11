@@ -447,21 +447,23 @@
             are listed from left to right in order of highest to lowest homicide
              rate. As shown in the result of the graph, violent crime rates are 
              scattered all over the y-axis without any parallel behavior to the 
-             police homicide rates. his shows that police homicide rates are not 
-             directly affected by city crimes rate, yet, from our previous 
+             police homicide rates. This shows that police homicide rates are not 
+             directly affected by the city's violent crimes rate, yet, from our previous 
              findings, Black people are still more likely to be killed at 
              double the rate of their population.
           </p>
           <p>
             Having learned that crime rates are completely independent from 
-            police homicide rates, our exploration also looked into how the 
+            police homicide rates, we then began to examine any potential 
+            systemic issues within police departments themselves. Our exploration
+             also looked into how police brutality 
             rates shift before and after the implementation of de-escalation 
             policies within police departments. Similar to the previous 
             calculation for police homicide rates, the total number of people 
             killed by the police is divided by the total population multiplied 
-            by 10^6 for scaling the ranges. We looked into four cities, Denver, 
-            Cincinnati, Dallas, and San Francisco that implemented de-escalation
-             policies in 2016. 
+            by 10^6 to scale the ranges. We looked into four cities: Denver, 
+            Cincinnati, Dallas, and San Francisco, which all implemented de-escalation
+            policies in 2016. 
 
           </p>
         </div>
@@ -469,98 +471,141 @@
           <div class='mini-spacer'></div>
           
         <div id='policy-graph'>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.1.0/Chart.min.js"></script>
-
-        <div>
-            <canvas id="LineWithLine" width="600" height="400" padding="0" margin = "auto" display='block'></canvas>
-        </div>
-
-        <script>
-        var data = {
-            labels: [2015,2016,2017,2018,2019],
-            // datasets: [{
-            //     data: [12, 3, 2, 1, 8, 8, 2, 2, 3, 5, 7, 1]
-            // }]
-            datasets: [{ 
-                data: [36.57,
-                        45.94,
-                        22.68,
-                        27.91,
-                        42.63],
-                label: "Denver",
-                borderColor: "#3e95cd",
-                fill: false
-              }, { 
-                data: [70.15,
-                        50.05,
-                        19.89,
-                        39.66,
-                        26.32],
-                label: "Cincinatti",
-                borderColor: "#8e5ea2",
-                fill: false
-              }, { 
-                data: [8.45,
-                        9.82,
-                        5.21,
-                        2.97,
-                        8.19],
-                label: "Dallas",
-                borderColor: "#3cba9f",
-                fill: false
-              }, { 
-                data: [10.42,
-                        3.44,
-                        6.82,
-                        5.66,
-                        3.40],
-                label: "San Francisco",
-                borderColor: "#e8c3b9",
-                fill: false
-              }
-            ]
-        };
-
-        var ctx = document.getElementById("LineWithLine").getContext("2d");
-
-        Chart.types.Line.extend({
-            name: "LineWithLine",
-            draw: function () {
-                Chart.types.Line.prototype.draw.apply(this, arguments);
-
-                var point = this.datasets[0].points[this.options.lineAtIndex]
-                var scale = this.scale
-
-                // draw line
-                this.chart.ctx.beginPath();
-                this.chart.ctx.moveTo(point.x, scale.startPoint + 24);
-                this.chart.ctx.strokeStyle = '#ff0000';
-                this.chart.ctx.lineTo(point.x, scale.endPoint);
-                this.chart.ctx.stroke();
-
-                // write TODAY
-                this.chart.ctx.textAlign = 'center';
-                this.chart.ctx.fillText("policy implemented", point.x, scale.startPoint + 12);
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.min.js"></script>
+          <div>
+            <canvas id="line-chart" width="600" height="400"></canvas>
+          </div>
+          <script>
+          const verticalLinePlugin = {
+            getLinePosition: function (chart, pointIndex) {
+                const meta = chart.getDatasetMeta(0); // first dataset is used to discover X coordinate of a point
+                const data = meta.data;
+                return data[pointIndex]._model.x;
+            },
+            renderVerticalLine: function (chartInstance, pointIndex) {
+                const lineLeftOffset = this.getLinePosition(chartInstance, pointIndex);
+                const scale = chartInstance.scales['y-axis-0'];
+                const context = chartInstance.chart.ctx;
+          
+                // render vertical line
+                context.beginPath();
+                context.strokeStyle = '#A92D71';
+                context.moveTo(lineLeftOffset, scale.top+100);
+                context.lineTo(lineLeftOffset, scale.bottom);
+                context.stroke();
+          
+                // write label
+                context.fillStyle = "#A92D71";
+                context.textAlign = 'center';
+                context.fillText('De-escalation Implemented', lineLeftOffset, scale.top+80);
+            },
+          
+            afterDatasetsDraw: function (chart, easing) {
+                if (chart.config.lineAtIndex) {
+                    chart.config.lineAtIndex.forEach(pointIndex => this.renderVerticalLine(chart, pointIndex));
+                }
             }
-        });
-
-        new Chart(ctx).LineWithLine(data, {
-            datasetFill : false,
-            lineAtIndex: 1
-        });
-        </script>
+            };
+          
+            Chart.plugins.register(verticalLinePlugin);
+          
+          
+            var data = {
+              labels: [2015,2016,2017,2018,2019],
+              datasets: [{ 
+                  data: [36.57,
+                          45.94,
+                          22.68,
+                          27.91,
+                          42.63],
+                  label: "Denver",
+                  borderColor: "#91ADCF",
+                  fill: false
+                }, { 
+                  data: [70.15,
+                          50.05,
+                          19.89,
+                          39.66,
+                          26.32],
+                  label: "Cincinatti",
+                  borderColor: "#91ADCF",
+                  fill: false
+                }, { 
+                  data: [8.45,
+                          9.82,
+                          5.21,
+                          2.97,
+                          8.19],
+                  label: "Dallas",
+                  borderColor: "#91ADCF",
+                  fill: false
+                }, { 
+                  data: [10.42,
+                          3.44,
+                          6.82,
+                          5.66,
+                          3.40],
+                  label: "San Francisco",
+                  borderColor: "#91ADCF",
+                  fill: false
+                }, { 
+                  data: [5.02,
+                          4.95,
+                          5.44,
+                          5.67,
+                          5.52],
+                  label: "National Average",
+                  borderColor: "#3A4F6F",
+                  fill: false
+                }
+              ]
+            };
+            new Chart(document.getElementById("line-chart"), {
+               type: 'line',
+               data: data,
+               label: 'Progress',
+               options: {
+                responsive: true,
+                scales: {
+                  xAxes: [ {
+                    // type: 'time',
+                    display: true,
+                    scaleLabel: {
+                      display: true,
+                      labelString: 'Year'
+                    },
+                    ticks: {
+                      major: {
+                        fontStyle: 'bold',
+                        fontColor: '#FF0000'
+                      }
+                    }
+                  } ],
+                  yAxes: [ {
+                    display: true,
+                    scaleLabel: {
+                      display: true,
+                      labelString: 'Police Homicide Rate (10^6)'
+                    }
+                  } ]
+                }
+              },
+              lineAtIndex: [1]
+            })
+          </script>
         </div>
         <div class='description'>
-          <p>Though we thought we spotted soft correlations between implementing 
+          <p>Although we thought we spotted soft correlations between implementing 
             de-escalating policies and lower death rates in Cincinnati and 
-            Denver, Dallas and San Fransisco don’t follow the same trend. 
+            Denver, Dallas and San Francisco do not follow the same trend. 
             From this, we concluded that there are so many other factors that 
             could have affected this result, and it is premature to identify 
-            a direct cause, although there is a chance that implementing 
+            the direct effect of an individual policy, although there is a chance that implementing 
             de-escalation policies could have definitely been one of many 
             factors.</p>
-          <p>The next scope of exploration was heavily influenced by the <a href="https://www.statesmanjournal.com/story/news/2020/12/05/black-lives-matter-blm-protests-march-salem-oregon-police/3837269001/">current movements</a>
-            movements that fiercely call for cops to be accountable for their 
+          <p>The next scope of exploration was heavily influenced by the 
+            <a href="https://www.statesmanjournal.com/story/news/2020/12/05/black-lives-matter-blm-protests-march-salem-oregon-police/3837269001/">current movements</a>
+            movements that fiercely call for cops to be held accountable for their 
             aggressive actions. Policies are not able to carry as much weight
             if they are not regularly enforced and if those who fail to follow 
             them are not correctly reprimanded. We have already lost so many individuals to 
@@ -574,8 +619,9 @@
 
       <div>
         <div class='section-spacer'></div>
-          <h2 class='section-header' style="margin-bottom: 15px;">Out of 100, how many police officers do you think are held accountable 
-            for their actions?</h2>
+          <h2 class='section-header' style="margin-bottom: 15px;">Out of 100 
+            police officers who commit an act of police brutality, how many do 
+            you think are held accountable for their actions?</h2>
             <div id='mini-spacer'></div>
         <div id="grids" style="position: relative; margin: 0 auto; text-align: center;">
           <div style="margin: auto 1.5em; display: inline-block;">
@@ -587,7 +633,7 @@
         <p class='description'>You guessed <b><span id='guess'>__</span></b> officers.</p>
         <div id='soln-text' style='visibility: hidden' class='description'>
           <p>After looking into 8543 cases that happened from 2013 to 2020, 
-            only 117 officers were charged which means that only 1.4% were held 
+            only 117 officers were charged, meaning that only 1.4% were held 
             accountable for controversial actions. Moreover, of those small 
             numbers of officers, the official record shows us the results of 
             only 48 officers in which a total of 19 were convicted with 29 were 
