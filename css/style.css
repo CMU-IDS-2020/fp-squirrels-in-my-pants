@@ -91,7 +91,7 @@ body {
 
 #map {
     margin: auto;
-    width: 70%;
+    width: 60%;
 }
 
 #guess button {
@@ -109,30 +109,30 @@ body {
 
 #pie-chart {
     margin: auto;
-    width: 70%;
+    width: 60%;
     max-height: 500px;
 }
 
 .description {
   margin: auto;
-  width: 70%;
+  width: 60%;
   font-size: 18px;
 }
 
 .section-header {
   margin: auto;
-  width: 70%;
+  width: 60%;
   font-size: 36px;
 }
 
 #policy-graph {
   margin: auto;
-  width: 70%;
+  width: 60%;
 }
 
 #crime-rate {
   margin: auto;
-  width: 70%;
+  width: 60%;
 }
 
 .mini-spacer {
