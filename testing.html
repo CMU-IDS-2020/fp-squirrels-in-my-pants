@@ -63,18 +63,25 @@ Chart.types.Line.extend({
         // draw line
         this.chart.ctx.beginPath();
         this.chart.ctx.moveTo(point.x, scale.startPoint + 24);
-        this.chart.ctx.strokeStyle = '#ff0000';
+        this.chart.ctx.strokeStyle = '#A92D71';
         this.chart.ctx.lineTo(point.x, scale.endPoint);
         this.chart.ctx.stroke();
 
         // write TODAY
         this.chart.ctx.textAlign = 'center';
-        this.chart.ctx.fillText("policy implemented", point.x, scale.startPoint + 12);
+        this.chart.ctx.fillText("De-escalation Implemented", point.x, scale.startPoint + 12);
     }
 });
 
 new Chart(ctx).LineWithLine(data, {
     datasetFill : false,
     lineAtIndex: 1
+    // options: {
+    //     scales: {
+    //         xAxes: [{
+    //             labelString='Year'
+    //         }]
+    //     }
+    // }
 });
 </script>
