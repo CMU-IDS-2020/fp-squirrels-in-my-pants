@@ -39,21 +39,21 @@ Lastly, we wrapped up our narrative by calling for data transparency. As we work
 
 Beginning with our analyses, we first saw a disparity in racial breakdown of police brutality incidents in relation to population percentages. While Black people only consist of about 12% of the population, they composed 26% of police brutality incidents from 2013 to 2019. Additionally, while White people are 61% of the population, they compose about 44% of police killings. This indicated that Black people are victims of police brutality at a higher rate than other races despite being a lower percentage of the population, while White people are killed at a lower rate than other races despite being a higher percentage of the population. While we can see this association between race and police brutality, it does not answer the full question. It is only an association at this point.
 
-![](images/race.png)
+![](images/race.png=100x20)
 
 <img src="images/race.png" style="height: 300px;"/>
 
 We then dived into a more geographic approach by seeing if specific cities that were more prone to police brutality had other indicators that could help us understand more about police brutality rates. Based on our graph comparing violent crime rates to police brutality rates, we noticed that there was no strong association between the two. For example, Nashville has a police brutality rate of 2.6%, compared to it's violent crime rate, which is 12.4%. In comparison, New Orleans has a similar violent crime rate of 11.5%, but it has almost double the police brutality rate with a rate of 5%.
 
-![](images/crime-rates.png)
+![](images/crime-rates.png=100x20)
 
 Next, we looked into specific cities and took a look at individual policies implemented. When taking a look at de-escalation policies, we can see that there is an immediate drop for cities that implemented it, but then the rates rose again in the examples of Denver and Cincinatti. Because of the nature of public data, we are limited in understanding the direct effects of policies as the data does not account for whether or not de-escalation policies played any role in the how police officers engaged with the victims.
 
-![](images/de-escalation.png)
+![](images/de-escalation.png=100x20)
 
 After examining police brutality rates in conjunction with de-escalation policy implementation dates, we then looked at charging police officers. Out of 8543 cases between 2013-present, only 1.4% of officers (117) where charged. This is simply the first step into being held accountable. After being charged, we only knew 48 results - 19 were convicted and 29 were acquitted of all charges. The incredibly low conviction rate is quite possibly another reason why policies are not as effective in reducing police brutality rates - we are simply not holding officers accountable and are allowing them to continue practicing the same injustices they practiced when they took the lives of those they killed. 
 
-![](images/guess.png)
+![](images/guess.png=100x20)
 
 ## Discussion
 
