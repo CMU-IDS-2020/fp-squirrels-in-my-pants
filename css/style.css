@@ -1,6 +1,10 @@
 body {
-    font-family: 'Lora', serif;
+    font-family: 'Open Sans', sans-serif;
     background-color: #f2f2f2;
+}
+
+#title-section{
+  font-family: 'Lora', serif;
 }
 
 #play-button {
@@ -86,7 +90,7 @@ body {
 .content p {
     font-size: 24px;
     margin: auto;
-    width: 50%;
+    width: 60%;
 }
 
 #map {
