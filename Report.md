@@ -41,6 +41,8 @@ Beginning with our analyses, we first saw a disparity in racial breakdown of pol
 
 ![](images/race.png)
 
+<img src="images/race.png" style="max-width: 50%; max-height: 50%;"/>
+
 We then dived into a more geographic approach by seeing if specific cities that were more prone to police brutality had other indicators that could help us understand more about police brutality rates. Based on our graph comparing violent crime rates to police brutality rates, we noticed that there was no strong association between the two. For example, Nashville has a police brutality rate of 2.6%, compared to it's violent crime rate, which is 12.4%. In comparison, New Orleans has a similar violent crime rate of 11.5%, but it has almost double the police brutality rate with a rate of 5%.
 
 ![](images/crime-rates.png)
