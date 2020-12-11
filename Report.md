@@ -2,7 +2,9 @@
 
 ![](images/intro.gif)
 
-<img src="images/intro.gif" width="50%" margin="auto" />
+<p align="center">
+  <img src="images/intro.gif" />
+</p>
 
 
 **Project URL**: [Say Their Names](https://cmu-ids-2020.github.io/fp-squirrels-in-my-pants/)
