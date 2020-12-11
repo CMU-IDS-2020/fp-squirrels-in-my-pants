@@ -8,12 +8,15 @@
   * viviansu@andrew.cmu.edu
 * **Track**: Narrative
 
+## Overview
+<img src="overview.gif"/>
+
 ## Work distribution
 
 * Asad: Worked on creating basic webpage outline as well as the map visualization and helped with de-escalation research, wrote report, added to narrative elements of the project
 * Julie: Worked on compiling resources for call to action, added to narrative elements of the project, came up with visual design basis for the project
-* Mei: Created pie chart on race, de-escalation graph, created violent crimes and police brutality graph
-* Vivian: Worked on incorporating guessing game into project, helped with overall HTML/CSS/JS, worked on specific city case studeis
+* Mei: Created pie chart on race, de-escalation graph, violent crimes and police brutality graph, contributed to narrative
+* Vivian: Worked on incorporating guessing game into project, helped with de-escalation, narrative, overall HTML/CSS/JS
 
 ## Deliverables
 
